@@ -1,0 +1,45 @@
+title Student Answers a Company Questionaire
+
+alt The student finds the questionaire link in the internship page.
+Student->S&C Server: openInternshipPage(internshipId: String)
+S&C Server->Database: getInternshipDetails(internshipId: String)
+Database-->S&C Server: return internshipDetails
+S&C Server-->Student: return internshipPage
+note left of Student: Student can see "Compile the questionaire" button \nin the internship page.
+else The student has received the questionaire link by email.
+Student->S&C Server: validateQuestionaireLink(questionaireId: String)
+note left of Student: The student has received a direct link to the \nquestionaire by email.
+S&C Server->Database: getInternshipDetails(internshipId: String)
+Database-->S&C Server: return internshipDetails
+alt The questionaire is expired
+    S&C Server-->Student: return questionaireExpired
+else The questionaire is not expired
+    S&C Server-->Student: return redirectNavigation
+end
+end
+Student->S&C Server: openQuestionairePage(questionaireId: String)
+S&C Server->Database: getQuestionaireQuestions(questionaireId: String)
+Database-->S&C Server: return questionaireQuestions
+S&C Server-->Student: return questionairePage
+loop For each question
+    Student->S&C Server: answerQuestion(questionaireId: String, questionId: String, answer: String)
+    S&C Server->Database: saveAnswer(questionaireId: String, questionId: String, answer: String)
+    Database-->S&C Server: -
+    S&C Server-->Student: return answerSaved
+end
+Student->S&C Server: submitQuestionaire(questionaireId: String)
+S&C Server->Database: saveQuestionaireSubmission(questionaireId: String)
+Database-->S&C Server: -
+S&C Server-->Student: return questionaireSubmitted
+S&C Server->Email Service: generateEmailNotification(studentId: String, internshipId: String)
+Email Service->Company: deliverEmail(mail: Object)
+Email Service-->S&C Server: -
+
+note left of Student: The quetionarie now needs to be evaluated.
+S&C Server->S&C Server: evaluateQuestionaire(questionaireId: String)
+S&C Server->Database: getQuestionaireAnswers(questionaireId: String)
+Database-->S&C Server: return questionaireAnswers
+S&C Server->Database: getQuestionaireQuestions(questionaireId: String)
+Database-->S&C Server: return questionaireQuestions
+S&C Server->Database: saveQuestionaireEvaluation(questionaireId: String, evaluation: Integer)
+Database-->S&C Server: -
