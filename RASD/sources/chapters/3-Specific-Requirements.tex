@@ -472,3 +472,39 @@ CO has already loaded the questionnaire for the STs.
 \par \textbf{Exit Condition:} CO has increased the number of potential candidates for the internship.
 
 \par \textbf{Exceptions:}  S\&C generated an internal error.
+
+% 14A
+\nextUseCaseID: Company Decides Who to Hire for an Internship
+
+\par \textbf{Actors:} ST, CO
+
+\par \textbf{Entry Condition:} CO is correctly logged in. CO has published an internship listing.
+
+\par \textbf{Flow of Events:}
+
+\begin{enumerate}
+    \item CO selects an internship to view the details of.
+    \item S\&C fetch the internship details from the database.
+    \item S\&C shows the internship details to the CO.
+    \item CO clicks on the "Applicants" button.
+    \item S\&C fetch the applicants from the database.
+    \item S\&C shows the applicants to the CO.
+    \item CO selects "Show Questionnaires Results" button.
+    \item S\&C fetch the questionnaires results from the database.
+    \item S\&C shows the questionnaires results to the CO.
+    \item CO evaluates the candidates profiles:
+    \begin{enumerate}
+        \item CO clicks on the "Details" button next to a candidate.
+        \item S\&C fetch the candidate details from the database.
+        \item S\&C fetch the candidate questionnaire answare from the database.
+        \item S\&C shows the candidate details and questionnaire answare to the CO.
+    \end{enumerate}
+    \item CO decides who to interview and contacts them. At the end, CO decides who to hire.
+    \item CO clicks on the "Hire" button next to the candidate.
+    \item S\&C stores the hiring decision in the database.
+    \item S\&C changes the status of the internship to "On-Going".
+\end{enumerate}
+
+\par \textbf{Exit Condition:} CO has successfully hired a candidate for the internship.
+
+\par \textbf{Exceptions:}  S\&C generated an internal error.
