@@ -1,4 +1,4 @@
-title University Views the Status of the Interships
+title University Views the Status of the Internships
 
 University->S&C Server: openInternshipsPage()
 S&C Server->Database: getInternshipsList(SQLFilters: SQLPreparedStatement)

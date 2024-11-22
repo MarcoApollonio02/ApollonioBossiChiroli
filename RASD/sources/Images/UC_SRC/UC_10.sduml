@@ -1,4 +1,4 @@
-title Company Looks for Extra Potential Candidates through the Raccomandation System
+title Company Looks for Extra Potential Candidates through the Recommendation System
 
 Company->S&C Server: openInternshipPage(internshipId: String)
 S&C Server->Database: getInternshipDetails(internshipId: String)
