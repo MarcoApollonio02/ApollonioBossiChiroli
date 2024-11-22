@@ -508,3 +508,27 @@ CO has already loaded the questionnaire for the STs.
 \par \textbf{Exit Condition:} CO has successfully hired a candidate for the internship.
 
 \par \textbf{Exceptions:}  S\&C generated an internal error.
+
+% 15
+\nextUseCaseID: University Views the Status of the Interships
+
+\par \textbf{Actors:} UN
+
+\par \textbf{Entry Condition:} UN is correctly logged in.
+
+\par \textbf{Flow of Events:}
+
+\begin{enumerate}
+    \item UN visits the "My Internships" page.
+    \item S\&C fetch the internships from the database.
+    \item S\&C shows the internships to the UN.
+    \item UN filters the internships by keyword, company, etc.
+    \item S\&C shows the filtered internships to the UN.
+    \item UN selects an internship to view the details.
+    \item S\&C fetch the internship details from the database.
+    \item S\&C shows the internship details to the UN.
+\end{enumerate}
+
+\par \textbf{Exit Condition:} UN has successfully viewed the internships of its STs.
+
+\par \textbf{Exceptions:}  S\&C generated an internal error.
