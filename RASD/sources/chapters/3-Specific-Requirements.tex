@@ -335,3 +335,140 @@ CO has already loaded the questionnaire for the STs.
     \caption{University reviews and handles complaint use case diagram}
     \label{fig:use-case-diagram-16}
 \end{figure}
+
+% 3
+\nextUseCaseID: Student Internship Advertisement Search
+
+\par \textbf{Actors:} ST
+
+\par \textbf{Entry Condition:} ST is correctly logged in.
+
+\par \textbf{Flow of Events:}
+
+\begin{enumerate}
+    \item ST visits the "Internships" page.
+    \item S\&C fetch the internships from the database.
+    \item S\&C shows the internships to the ST.
+    \item ST filters the internships by keyword, company, etc.
+    \item S\&C shows the filtered internships to the ST.
+    \item ST selects an internship to view the details.
+    \item S\&C fetch the internship details from the database.
+    \item S\&C shows the internship details to the ST.
+\end{enumerate}
+
+\par \textbf{Exit Condition:} ST evaluates the internship and decides to apply or not.
+
+\par \textbf{Exceptions:}  S\&C generated an internal error.
+
+% 4
+\nextUseCaseID: Student Applies to an Internship
+
+\par \textbf{Actors:} ST, CO
+
+\par \textbf{Entry Condition:} ST is correctly logged in.
+
+\par \textbf{Flow of Events:}
+
+\begin{enumerate}
+    \item ST visits the "Internships" page.
+    \item S\&C fetch the internships from the database.
+    \item S\&C shows the internships to the ST.
+    \item ST selects an internship to view the details.
+    \item S\&C fetch the internship details from the database.
+    \item S\&C shows the internship details to the ST.
+    \item ST clicks on the "Apply" button.
+    \item S\&C stores the application in the database.
+    \item S\&C notifies the CO that the ST has applied to the internship.
+\end{enumerate}
+
+\par \textbf{Exit Condition:} ST has successfully applied to the internship.
+
+\par \textbf{Exceptions:}  S\&C generated an internal error.
+
+% 5
+\nextUseCaseID: Student Answers a Company Questionaire
+
+\par \textbf{Actors:} ST, CO
+
+\par \textbf{Entry Condition:} CO asked ST to fill a questionnaire.
+
+\par \textbf{Flow of Events:}
+
+\begin{itemize}
+    \item (opz. 1) ST uses the link sent by S\&C via email to access the questionnaire.
+    \begin{enumerate} 
+        \item S\&C verify if the link is valid.
+        \begin{itemize}
+            \item Link valid and not expired: the flow continues.
+            \item Link invalid or expired: ST is redirected to the questionnaire page.
+    \end{enumerate}
+    \item (opz. 2) ST finds the questionnaire directly on the S\&C platform.
+    \begin{enumerate}
+        \item ST visits the "My Internships" page.
+        \item S\&C fetch the internships from the database.
+        \item S\&C shows the internships to the ST.
+        \item ST selects an internship to view the details.
+        \item S\&C fetch the internship details from the database.
+        \item S\&C shows the internship details to the ST.
+        \item ST clicks on the "Compile the Questionnaire" button.
+        \item ST is redirected to the questionnaire page.
+    \end{enumerate}
+    \item S\&C fetch the questionnaire from the database.
+    \item S\&C shows the questionnaire to the ST.
+    \item ST starts to fill the questionnaire. For each question:
+    \begin{enumerate}
+        \item ST gives an answer.
+        \item S\&C stores the answer in the database.
+    \end{enumerate}
+    \item ST ends its job and submits the questionnaire.
+    \item S\&C stores that the questionnaire was submitted.
+    \item S\&C notifies the CO that the questionnaire was successfully submitted.
+    \item S\&C sends a notification email to the CO about the questionnaire submission.
+    \item S\&C evaluates the answers and compute the final score.
+    \item S\&C the final score is stored to be consulted by the CO later.
+\end{itemize}
+
+\par \textbf{Exit Condition:} ST has successfully filled the questionnaire.
+
+\par \textbf{Exceptions:}  S\&C generated an internal error. The link is invalid or expired.
+
+% 10
+\nextUseCaseID: Company Looks for Extra Potential Candidates through the Recommendation System
+
+\par \textbf{Actors:} ST, CO
+
+\par \textbf{Entry Condition:} CO is correctly logged in. CO has published an internship listing.
+
+\par \textbf{Flow of Events:}
+
+\begin{enumerate}
+    \item CO visits the "My Internships" page.
+    \item S\&C fetch the internships from the database.
+    \item S\&C shows the internships to the CO.
+    \item CO selects an internship to view the details.
+    \item S\&C fetch the internship details from the database.
+    \item S\&C shows the internship details to the CO.
+    \item CO clicks on the "Applicants" button.
+    \item S\&C fetch the applicants from the database.
+    \item S\&C shows the applicants to the CO.
+    \item CO clicks on "Recommended Candidates" button.
+    \item (opz. 1) S\&C fetch the recommended candidates from the database.
+    \item (opz. 2) The list of recommended candidates must be updated.
+    \begin{enumerate}
+        \item The reccomendation system fetches informations about the internship.
+        \item The reccomendation system computes a set of filters used to find the best candidates.
+        \item The reccomendation system fetches the candidates from the database using the filters.
+        \item The reccomendation system stores the list of "preferred" candidates in the database.
+    \end{enumerate}
+    \item S\&C shows the recommended candidates to the CO.
+    \item CO selects a candidate to view the details of.
+    \item S\&C fetch the candidate details from the database.
+    \item S\&C shows the candidate details to the CO.
+    \item CO, if interested, can "suggests" the internship to the ST by clicking on the "Suggests this Internship" button.
+    \item S\&C sends the ST a notification email about the internship suggestion.
+    \item S\&C stores the CO interest for this particular ST.
+\end{enumerate}
+
+\par \textbf{Exit Condition:} CO has increased the number of potential candidates for the internship.
+
+\par \textbf{Exceptions:}  S\&C generated an internal error.
