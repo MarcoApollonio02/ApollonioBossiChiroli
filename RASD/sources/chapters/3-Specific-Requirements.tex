@@ -532,3 +532,25 @@ CO has already loaded the questionnaire for the STs.
 \par \textbf{Exit Condition:} UN has successfully viewed the internships of its STs.
 
 \par \textbf{Exceptions:}  S\&C generated an internal error.
+
+% 17
+\nextUseCaseID: University Blocks a Malicious Company
+
+\par \textbf{Actors:} UN
+
+\par \textbf{Entry Condition:} UN is correctly logged in. UN has received a serious complaint that requires the blocks of a malicious CO.
+
+\par \textbf{Flow of Events:}
+
+\begin{enumerate}
+    \item UN visists the "My Contract" page.
+    \item S\&C fetches the agreement between UN and corporate.
+    \item S\&C shows the legal documents currently effective between UN and S\&c corp.
+    \item UN clicks on "Block a Company" and enters the CO id (eg. PIVA) of the malicious company.
+    \item S\&C updates the UN's blacklist adding the specified CO.
+    \item S\&C shows the user a confirmation.
+\end{enumerate}
+
+\par \textbf{Exit Condition:} UN has now successfully "burnt all the bridges" betwwen its STs and the affected CO.
+
+\par \textbf{Exceptions:}  S\&C generated an internal error. Invalid CO's identifier.
