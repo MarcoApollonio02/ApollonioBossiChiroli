@@ -1,6 +1,6 @@
 <div align="center">
     <br>
-    <img src=".github/assets/SC_Logo.png" alt="SC_Logo" width="45%" height="45%">
+    <img src=".github/assets/SC_Logo.png" alt="SC_Logo" width="40%" height="40%">
     <br>
 </div>
 
