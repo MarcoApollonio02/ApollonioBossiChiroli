@@ -1,6 +1,6 @@
 <div align="center">
     <br>
-    <img src=".github/assets/SC_Logo.png" alt="SC_Logo" width="35%" height="35%">
+    <img src=".github/assets/SC_Logo.png" alt="SC_Logo" width="45%" height="45%">
     <br>
 </div>
 
@@ -36,11 +36,13 @@ pdflatex main.tex
 
 ## About the project
 
-S&C is a web application designed to connect students and companies, streamlining the internship recruitment process. 
+S&C is a web application designed to connect students and companies, streamlining the internship recruitment process.
+
 The platform enables students to discover internships matching their skills and interests, while companies can find 
 suitable candidates through customized questionnaires and evaluations. Using recommendation algorithms, S&C suggests 
 relevant opportunities to students based on their capabilities and helps companies identify matching candidates. The 
 platform facilitates the entire internship lifecycle, including application management, progress tracking, and feedback 
-collection, with universities mediating any disputes. By bridging the gap between academic and professional 
-environments, S&C aims to reduce skill mismatches by helping students gain practical experience while providing 
-companies access to talented candidates.
+collection, with universities mediating any disputes.
+
+By bridging the gap between academic and professional environments, S&C aims to reduce skill mismatches by helping 
+students gain practical experience while providing companies access to talented candidates.
