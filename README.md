@@ -46,3 +46,7 @@ collection, with universities mediating any disputes.
 
 By bridging the gap between academic and professional environments, S&C aims to reduce skill mismatches by helping 
 students gain practical experience while providing companies access to talented candidates.
+
+## Final Grade
+
+13.75 / 14
